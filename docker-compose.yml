@@ -1,0 +1,9 @@
+services:
+  nginx:
+    build: .
+    ports:
+      - "1935:1935"    # RTMP port for Flutter
+      - "8080:8080"    # HTTP port for HLS to Next.js
+    volumes:
+      - ./hls:/tmp/hls
+    restart: unless-stopped
